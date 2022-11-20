@@ -1,3 +1,3 @@
-#Singleton
+# Singleton
 
-####Single object with global scope (Reusing the same object)
+#### Single object with global scope (Reusing the same object)
