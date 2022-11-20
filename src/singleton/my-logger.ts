@@ -4,8 +4,7 @@ class Logger {
     private logs: string[] = [];
     
     log(message: string) {
-        // console.log('Logging from Logger class');
-        // console.log(message);
+        console.log(`${new Date().toISOString()} - ${message}`);
         this.logs.push(message);
         this.cnt++;
     }
@@ -15,7 +14,7 @@ class Logger {
     }
 
     printLogs() {
-        this.logs.forEach(console.log);
+        // this.logs.forEach(console.log);
     }
 }
 
