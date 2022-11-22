@@ -1,17 +1,5 @@
 import fs from 'fs';
 
-type JSONValue = 
- | string
- | number
- | boolean
- | null
- | JSONValue[]
- | {[key: string]: JSONValue}
-
-interface JSONObject {
-  [k: string]: JSONValue
-}
-
 class fileUtils {
     
     readFileSync(filePath: string) {

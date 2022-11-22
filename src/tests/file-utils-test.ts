@@ -1,18 +1,11 @@
-import path from "path";
-import fs from 'fs';
-import { fileUtil } from "../utils/file-utils";
+import { localStorage } from "../adapter/local-storage";
 
-const filePath = path.resolve(__dirname, '../../resources/test.json');
+localStorage.setKey('occupation', 'Software Engineer');
+localStorage.setKey('salary', '50K');
 
-const content = fileUtil.readFileSync(filePath)
-console.log(content["name"]);
+console.log(localStorage.readContent());
 
-content.name = 'Mounika';
+localStorage.deleteAll();
+localStorage.deleteKey('occupation');
 
-fileUtil.writeFileSync(filePath, content);
-const newContent = fileUtil.readFileSync(filePath)
-console.log(newContent["name"]);
-
-
-
-
+console.log(localStorage.readContent());
