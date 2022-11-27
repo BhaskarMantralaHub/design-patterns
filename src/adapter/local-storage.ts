@@ -10,23 +10,32 @@ class LocalStorage {
         this.filePath = path.resolve(__dirname, '../../resources/localStorage.json');
     }
 
-    setKey(key: string, value: string) {
+    setItem(key: string, value: string) {
         let fileContent = this.readContent();
         fileContent[key] = value;
         this.writeContent(fileContent);
     }
 
-    deleteKey(key: string) {
+    getItem(key: string) {
+        let fileContent = this.readContent();
+        return fileContent[key];
+    }
+
+    removeItem(key: string) {
         let fileContent = this.readContent();
         delete fileContent[key];
         this.writeContent(fileContent);
     }
 
-    deleteAll() {
+    clear() {
         let fileContent = this.readContent();
         for (const key in fileContent) {
-            this.deleteKey(key);
+            this.removeItem(key);
         }
+    }
+
+    length() {
+       return Object.keys(this.readContent()).length;
     }
 
     readContent() {
